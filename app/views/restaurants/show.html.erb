@@ -7,6 +7,9 @@
   <%= @restaurant.name %>
 </h2>
 
+<p><%= @avg_rating %></p>
+<p> <%= "#{@reviews.length} reviews" %></p>
+
 <p>
   <strong>Address:</strong>
   <%= @restaurant.address %>
@@ -27,13 +30,23 @@
 <% if @reviews.blank? %>
 <h3> no reviews yet. </h3>
 <% else %>
-	<% @reviews.each do |review| %>
-  
-<div class="star-rating" data-score= <%= review.rating %> ></div>
- <p><%= review.rating %></p>
+
+<table class= "table">
+	<tbody>
+		<% @reviews.each do |review| %>  
+		<tr>
+		<td>
+			<div class="star-rating" data-score= <%= review.rating %> ></div>
+ 			<p><%= review.rating %></p>
  
-  <p><%= review.comment %></p>
+		  <p><%= review.comment %></p>
+		</tr>
+		</td>
   <% end %>
+
+
+</tbody>
+</table>
 
 
 <% end %>
