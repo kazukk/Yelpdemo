@@ -28,7 +28,10 @@
 <h3> no reviews yet. </h3>
 <% else %>
 	<% @reviews.each do |review| %>
-  <p><%= review.rating %></p>
+  
+<div class="star-rating" data-score= <%= review.rating %> ></div>
+ <p><%= review.rating %></p>
+ 
   <p><%= review.comment %></p>
   <% end %>
 
@@ -43,7 +46,14 @@
 
 
 
-
-
 <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
 <%= link_to 'Back', restaurants_path, class: "btn btn-link" %>
+
+<script>
+ $('.star-rating').raty(
+{
+	https://s3-ap-northeast-1.amazonaws.com/yelpdemo-ks/stars
+}
+
+ 	);
+</script>
